@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
 import org.myoralvillage.cashcalculator.MainActivity;
-import org.myoralvillage.cashcalculator.R;
+import org.myoralvillage.cashcalculatormodule.R;
 import org.myoralvillage.cashcalculator.config.CashCalculatorConstants;
 import org.myoralvillage.cashcalculatormodule.fragments.CashCalculatorFragment;
 import org.myoralvillage.cashcalculatormodule.models.CurrencyModel;

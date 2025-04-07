@@ -18,7 +18,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import org.myoralvillage.cashcalculator.R;
+import org.myoralvillage.cashcalculator.pk.R;
 import org.myoralvillage.cashcalculatormodule.fragments.CashCalculatorFragment;
 
 import android.annotation.SuppressLint;
