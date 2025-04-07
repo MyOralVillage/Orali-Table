@@ -17,7 +17,9 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import org.myoralvillage.cashcalculator.MainActivity;
 import org.myoralvillage.cashcalculator.R;
 import org.myoralvillage.cashcalculator.TutorialActivity;
 import org.myoralvillage.cashcalculator.config.CashCalculatorConstants;
@@ -33,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class IntroVideoActivity extends AppCompatActivity {
+public class IntroVideoActivity extends AppCompatActivity implements View.OnClickListener  {
     private CashCalculatorFragment fragment;
     private CountingTableView countingTable;
     private CurrencyScrollbarView currencyScrollbar;
@@ -99,8 +101,39 @@ public class IntroVideoActivity extends AppCompatActivity {
                 currencyScrollbar.getViewTreeObserver().removeGlobalOnLayoutListener(this);
             }
         });
+
+//        ImageView gototutorial = (ImageView) findViewById(R.id.gototutorial);
+//        gototutorial.setOnClickListener(this);
+//        gototutorial.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.gototutorial:
+                switchtoTutorial();
+                break;
+        }
+    }
+
+    private void switchtoTutorial() {
+//        System.out.println("Test here");
+//        Intent intent = new Intent(this, TutorialActivity.class);
+//        intent.putExtra("currencyCode", currencyName);
+//        intent.putExtra("numericMode", getIntent().getBooleanExtra("numericMode", false));
+//        startActivity(intent);
+//        finish();
+        runExit();
+    }
     long enterTime = 0, exitTime = 0;
     @Override
     protected void onStart() {
@@ -129,7 +162,6 @@ public class IntroVideoActivity extends AppCompatActivity {
         getFadeOut(finger, 0).start();
         getFadeOut(black, 0).start();
         if (usesDecimal()) {
-
             switch (getIntent().getIntExtra("animationStage", 0)) { //tells you what level of tutorial we are at
                 case 0: //demonstrating putting notes on table
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
@@ -227,21 +259,26 @@ public class IntroVideoActivity extends AppCompatActivity {
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runExit();
             }
-        } else {
+        }
+        else {
             switch (getIntent().getIntExtra("animationStage", 0)) {
                 case 0:
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-5); // add the fifth smallest denomination (use -n for nth smallest, +n for (n+1)th biggest)
+                    runAddDenomination(-10); // add the fifth smallest denomination (use -n for nth smallest, +n for (n+1)th biggest)
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runRemoveDenomination(); // removes denomination only if there is only one type
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runAddDenomination(-4);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runRemoveDenomination();
-                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runFadeOutAndIn(); // fades the screen to black and then fades back in
+                    runRemoveDenomination(); // removes denomination only if there is only one type
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runAddDenomination(-5);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runRemoveDenomination(); // removes denomination only if there is only one type
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-6);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-4);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runSwitchToAddition(); // every time we switch to a new operation, we must end the switch case with a break and start a new one
                     break;
@@ -249,29 +286,31 @@ public class IntroVideoActivity extends AppCompatActivity {
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runAddDenomination(-4);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-3);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runClear();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runFadeOutAndIn();
-                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runAddDenomination(-7);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-5);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runSwitchToSubtraction();
                     break;
                 case 2:
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-5);
+                    runAddDenomination(-6);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-5);
+                    runAddDenomination(-4);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runClear();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runFadeOutAndIn();
+                    runAddDenomination(-8);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(3);
+                    runAddDenomination(-7);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runSwitchToMultiplication();
                     break;
@@ -279,51 +318,180 @@ public class IntroVideoActivity extends AppCompatActivity {
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runAddDenomination(-2);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-4);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runClear();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runFadeOutAndIn();
+                    runAddDenomination(-6);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runAddDenomination(-4);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runSwitchToMultiplication();
+                    runSwitchToAddition(); // every time we switch to a new operation, we must end the switch case with a break and start a new one
                     break;
                 case 4:
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-2);
+                    runAddDenomination(-5);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-4);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runSwitchToAddition();
+                    runSwitchToAddition(); // every time we switch to a new operation, we must end the switch case with a break and start a new one
                     break;
                 case 5:
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-1);
+                    runAddDenomination(-7);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-6);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runCalculate();
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runSwitchToAddition(); // every time we switch to a new operation, we must end the switch case with a break and start a new one
+                    break;
+                case 6:
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-4);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-7);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runClear();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runFadeOutAndIn();
+                    runAddDenomination(-8);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-4);
+                    runAddDenomination(-7);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runSwitchToMultiplication();
-                    break;
-                case 6:
-                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-1);
-                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runSwitchToAddition();
+                    runSwitchToSubtraction();
                     break;
                 case 7:
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
-                    runAddDenomination(-1);
+                    runAddDenomination(-7);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-6);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runSwitchToSubtraction();
+                    break;
+                case 8:
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-4);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-5);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runSwitchToSubtraction();
+                    break;
+                case 9:
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-6);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    runAddDenomination(-4);
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+
+                    runClear();
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runExit();
+                    break;
+//                switch (7) {
+//                case 0:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-5); // add the fifth smallest denomination (use -n for nth smallest, +n for (n+1)th biggest)
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runRemoveDenomination(); // removes denomination only if there is only one type
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-4);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runRemoveDenomination();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runFadeOutAndIn(); // fades the screen to black and then fades back in
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-5);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runSwitchToAddition(); // every time we switch to a new operation, we must end the switch case with a break and start a new one
+//                    break;
+//                case 1:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-4);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runClear();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runFadeOutAndIn();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-7);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runSwitchToSubtraction();
+//                    break;
+//                case 2:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-5);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-5);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runClear();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runFadeOutAndIn();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(3);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runSwitchToMultiplication();
+//                    break;
+//                case 3:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-2);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runClear();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runFadeOutAndIn();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-4);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runSwitchToMultiplication();
+//                    break;
+//                case 4:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-2);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runSwitchToAddition();
+//                    break;
+//                case 5:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-1);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runClear();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runFadeOutAndIn();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-4);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runSwitchToMultiplication();
+//                    break;
+//                case 6:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-1);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runSwitchToAddition();
+//                    break;
+//                case 7:
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-1);
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
+//                    runExit();
             }
         }
         AnimatorSet set = new AnimatorSet();
@@ -527,8 +695,8 @@ public class IntroVideoActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(IntroVideoActivity.this, TutorialActivity.class);
-                intent.putExtra("currencyName", currencyName);
+                Intent intent = new Intent(IntroVideoActivity.this, MainActivity.class);
+                intent.putExtra("currencyCode", currencyName);
                 intent.putExtra("numericMode", numericMode);
                 startActivity(intent);
                 finish();

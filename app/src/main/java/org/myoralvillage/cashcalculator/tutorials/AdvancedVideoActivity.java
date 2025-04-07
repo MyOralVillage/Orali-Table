@@ -18,6 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import org.myoralvillage.cashcalculator.MainActivity;
 import org.myoralvillage.cashcalculator.R;
 import org.myoralvillage.cashcalculator.TutorialActivity;
 import org.myoralvillage.cashcalculator.config.CashCalculatorConstants;
@@ -134,21 +135,21 @@ public class AdvancedVideoActivity extends AppCompatActivity {
             switch (getIntent().getIntExtra("animationStage", 0)) {
                 case 0:
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-11);
+                    runAddDenomination(-8);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runSwitchToSubtraction();
                     break;
                 case 1:
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-10);
+                    runAddDenomination(-6);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runSwitchToAddition();
                     break;
                 case 2:
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-9);
+                    runAddDenomination(-5);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-9);
+                    runAddDenomination(-4);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
@@ -165,38 +166,36 @@ public class AdvancedVideoActivity extends AppCompatActivity {
                     runNext();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runClear();
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runFadeOutAndIn();
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-9);
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runSwitchToAddition();
-                    break;
-                case 3:
+
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runAddDenomination(-8);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runSwitchToMultiplication();
+                    runAddDenomination(-7);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runSwitchToSubtraction();
+                    break;
+                case 3:
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-6);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-5);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runCalculate();
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runSwitchToAddition();
                     break;
                 case 4:
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-5);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runAddDenomination(-4);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runEnterHistory();
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runNext();
+                    runClear();
+
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runAddDenomination(-9);
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runNext();
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runNext();
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runClear();
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runFadeOutAndIn();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runAddDenomination(-8);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
@@ -206,29 +205,59 @@ public class AdvancedVideoActivity extends AppCompatActivity {
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runAddDenomination(-7);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runSwitchToAddition();
-                    break;
-                case 6:
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-6);
+                    runAddDenomination(-5);
+
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runSwitchToMultiplication();
                     break;
-                case 7:
+                case 6:
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-5);
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runSwitchToSubtraction();
-                    break;
-                case 8:
-                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
-                    runAddDenomination(-8);
+                    runAddDenomination(-4);
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runCalculate();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runEnterHistory();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runNext();
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-6);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runNext();
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runNext();
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runClear();
+
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-8);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runSwitchToAddition();
+                    break;
+                case 7:
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-7);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runSwitchToAddition();
+                    break;
+                case 8:
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-6);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runSwitchToMultiplication();
+                    break;
+                case 9:
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-5);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runSwitchToSubtraction();
+                    break;
+                case 10:
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runAddDenomination(-8);
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runCalculate();
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runEnterHistory();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runRemoveDenomination();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
@@ -240,11 +269,127 @@ public class AdvancedVideoActivity extends AppCompatActivity {
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runNext();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    runNext();
+                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
                     runClear();
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+                    wait(CashCalculatorConstants.INTRO_VIDEO_WAIT_TIME);
                     runExit();
+
+//                case 0:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-11);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToSubtraction();
+//                    break;
+//                case 1:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-10);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToAddition();
+//                    break;
+//                case 2:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-9);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-9);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runEnterHistory();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runPrev();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runClear();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runFadeOutAndIn();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-9);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToAddition();
+//                    break;
+//                case 3:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-8);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToMultiplication();
+//                    break;
+//                case 4:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-4);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runEnterHistory();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-9);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runClear();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runFadeOutAndIn();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-8);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToAddition();
+//                    break;
+//                case 5:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-7);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToAddition();
+//                    break;
+//                case 6:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-6);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToMultiplication();
+//                    break;
+//                case 7:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-5);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runSwitchToSubtraction();
+//                    break;
+//                case 8:
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runAddDenomination(-8);
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runCalculate();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runEnterHistory();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runRemoveDenomination();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runNext();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runClear();
+//                    wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
+//                    runExit();
             }
-        } else {
+        }
+        else {
             switch (getIntent().getIntExtra("animationStage", 0)) {
                 case 0:
                     wait(CashCalculatorConstants.ADV_VIDEO_WAIT_TIME);
@@ -560,8 +705,8 @@ public class AdvancedVideoActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(AdvancedVideoActivity.this, TutorialActivity.class);
-                intent.putExtra("currencyName", currencyName);
+                Intent intent = new Intent(AdvancedVideoActivity.this, MainActivity.class);
+                intent.putExtra("currencyCode", currencyName);
                 intent.putExtra("numericMode", numericMode);
                 startActivity(intent);
                 finish();
@@ -765,8 +910,8 @@ public class AdvancedVideoActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return true;
-    }
+    // @Override
+    // public boolean dispatchTouchEvent(MotionEvent ev) {
+    //     return true;
+    // }
 }
